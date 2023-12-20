@@ -1,7 +1,7 @@
 <?php
 
 if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
-    return false;    // serve the requested resource as-is.
+    return false;    
 }
 
 session_start();
@@ -19,7 +19,7 @@ if($match){
     if(is_callable($match['action'])){
         call_user_func($match['action']);
     } else if(is_array($match['action'])){
-        $class = $match['action'][0]; // 'App\Controllers\PublicController'
+        $class = $match['action'][0]; 
         $controller = new $class();
         $method = $match['action'][1];
         $controller->$method();

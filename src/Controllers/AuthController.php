@@ -5,6 +5,30 @@ namespace App\Controllers;
 use App\Models\User;
 
 class AuthController {
+
+    public function edit(){
+        $id = $_GET['id'];
+        $user = User::find($id);
+        view('auth/edit', compact('user'));
+    }
+
+    public function update(){
+        $id = $_GET['id'];
+        $user = User::find($id);
+        $user->email = $_POST['email'];
+        $user->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $user->save();
+        header('Location: /admin/users');
+    }
+
+    public function delete(){
+        $id = $_GET['id'];
+        $user = User::find($id);
+        $user->delete();
+        header('Location: /admin/users');
+    }
+
+    
     public function register(){
         if($_POST['password'] == $_POST['password_confirm']){
             $user = new User();
