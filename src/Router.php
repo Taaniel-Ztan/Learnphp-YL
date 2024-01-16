@@ -4,9 +4,9 @@ namespace App;
 class Router {
 
 
-    public static $routes = [];
-    public $path;
-    public $method;
+public static $routes = [];
+public $path;
+public $method;
 
 public function __construct($path, $method){
     $this ->path = parse_url($path, PHP_URL_PATH);

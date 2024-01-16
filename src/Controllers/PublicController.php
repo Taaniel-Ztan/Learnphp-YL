@@ -19,6 +19,7 @@ class PublicController {
         // var_dump($_COOKIE);
         var_dump($_SESSION);
         //$_SESSION['id'] = 123;
+        //nigger
     }
     public function testAnswer(){
         var_dump($_POST);
